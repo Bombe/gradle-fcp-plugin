@@ -24,4 +24,5 @@ dependencies {
 
     testCompile group: 'org.testng', name: 'testng', version: '6.11'
     testCompile group: 'com.willowtreeapps.assertk', name: 'assertk', version: '0.9'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.10.0'
 }
