@@ -1,0 +1,27 @@
+
+buildscript {
+    ext.kotlinVersion = '1.1.50'
+
+    repositories {
+        mavenCentral()
+    }
+
+
+    dependencies {
+        classpath group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: kotlinVersion
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'kotlin'
+
+dependencies {
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion
+    compile gradleApi()
+
+    testCompile group: 'org.testng', name: 'testng', version: '6.11'
+    testCompile group: 'com.willowtreeapps.assertk', name: 'assertk', version: '0.9'
+}
