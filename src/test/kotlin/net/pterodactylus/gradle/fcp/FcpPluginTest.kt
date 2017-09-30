@@ -31,10 +31,10 @@ class FcpPluginTest {
 	@Test
 	fun `plugin forwards configuration from plugin to pluginFcp task`() {
 		plugin.apply(project)
-		assert((project.tasks.getByName("pluginFcp") as PluginFcpTask).host).isEqualTo("localhost")
-		assert((project.tasks.getByName("pluginFcp") as PluginFcpTask).port).isEqualTo(9481)
+		assert(project.tasks.get<PluginFcpTask>("pluginFcp").host).isEqualTo("localhost")
+		assert(project.tasks.get<PluginFcpTask>("pluginFcp").port).isEqualTo(9481)
 		project.extensions.get<FcpPluginExtension>("fcp").port = 9482
-		assert((project.tasks.getByName("pluginFcp") as PluginFcpTask).port).isEqualTo(9482)
+		assert(project.tasks.get<PluginFcpTask>("pluginFcp").port).isEqualTo(9482)
 	}
 
 }
