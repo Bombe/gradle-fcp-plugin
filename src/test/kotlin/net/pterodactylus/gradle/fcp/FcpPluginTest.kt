@@ -24,8 +24,8 @@ class FcpPluginTest {
 	@Test
 	fun `plugin adds extension container with default settings`() {
 		plugin.apply(project)
-		assert((project.extensions.getByName("fcp") as FcpPluginExtension).host).isEqualTo("localhost")
-		assert((project.extensions.getByName("fcp") as FcpPluginExtension).port).isEqualTo(9481)
+		assert(project.extensions.get<FcpPluginExtension>("fcp").host).isEqualTo("localhost")
+		assert(project.extensions.get<FcpPluginExtension>("fcp").port).isEqualTo(9481)
 	}
 
 	@Test
@@ -33,7 +33,7 @@ class FcpPluginTest {
 		plugin.apply(project)
 		assert((project.tasks.getByName("pluginFcp") as PluginFcpTask).host).isEqualTo("localhost")
 		assert((project.tasks.getByName("pluginFcp") as PluginFcpTask).port).isEqualTo(9481)
-		(project.extensions.getByName("fcp") as FcpPluginExtension).port = 9482
+		project.extensions.get<FcpPluginExtension>("fcp").port = 9482
 		assert((project.tasks.getByName("pluginFcp") as PluginFcpTask).port).isEqualTo(9482)
 	}
 

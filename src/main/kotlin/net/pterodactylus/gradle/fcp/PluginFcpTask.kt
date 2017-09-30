@@ -7,7 +7,7 @@ import org.gradle.api.DefaultTask
  */
 open class PluginFcpTask : DefaultTask() {
 
-	val host get() = (project.extensions.getByName("fcp") as FcpPluginExtension).host
-	val port get() = (project.extensions.getByName("fcp") as FcpPluginExtension).port
+	val host get() = project.extensions.get<FcpPluginExtension>("fcp").host
+	val port get() = project.extensions.get<FcpPluginExtension>("fcp").port
 
 }
