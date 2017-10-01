@@ -17,6 +17,7 @@ buildscript {
 
 repositories {
     mavenCentral()
+    maven { url "https://maven.pterodactylus.net/" }
 }
 
 apply plugin: 'kotlin'
@@ -24,6 +25,8 @@ apply plugin: 'kotlin'
 dependencies {
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion
     compile gradleApi()
+
+    compile group: 'net.pterodactylus', name: 'jFCPlib', version: '0.1.5'
 
     testCompile group: 'org.testng', name: 'testng', version: '6.11'
     testCompile group: 'com.willowtreeapps.assertk', name: 'assertk', version: '0.9'
