@@ -19,12 +19,9 @@ open class PluginFcpTask : DefaultTask() {
 
 	@TaskAction
 	fun runFcpCommand() {
-		project.logger.quiet("Connecting to Freenet Node at $host:$port...")
 		fcpClientProvider().use { fcpClient ->
 			fcpClient.connect("foo")
-			project.logger.quiet("Connected to Freenet Node, sending $message to $plugin...")
 			val reply = fcpClient.sendPluginMessage(plugin, parameters + ("Message" to message) + ("Identifier" to identifier))
-			project.logger.quiet("Sent $message to $plugin.")
 			if (reply["Message"] == "Error") {
 				throw IllegalStateException("${reply["ErrorCode"]} ${reply["ErrorMessage"]}")
 			}
