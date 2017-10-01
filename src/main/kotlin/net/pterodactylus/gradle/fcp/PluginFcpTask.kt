@@ -20,7 +20,7 @@ open class PluginFcpTask : DefaultTask() {
 	@TaskAction
 	fun runFcpCommand() {
 		fcpClientProvider().use { fcpClient ->
-			fcpClient.connect("foo")
+			fcpClient.connect(identifier)
 			val reply = fcpClient.sendPluginMessage(plugin, parameters + ("Message" to message) + ("Identifier" to identifier))
 			if (reply["Message"] == "Error") {
 				throw IllegalStateException("${reply["ErrorCode"]} ${reply["ErrorMessage"]}")
