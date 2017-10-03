@@ -10,7 +10,7 @@ This is a plugin for [Gradle](https://gradle.org/) that allows a build script to
 ./gradlew publishPluginPublicationToMavenLocal
 ```
 
-2. Include it in your `buildscript` section.
+2. Include it in your `build.gradle`.
 
 ```
 buildscript {
@@ -22,6 +22,8 @@ buildscript {
     classpath group: 'net.pterodactylus', name: 'gradle-fcp-plugin', version: '0.1-SNAPSHOT'
   }
 }
+
+apply plugin: 'net.pterodactylus.fcp'
 ```
 
 3. Configure your FCP connection.
